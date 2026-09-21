@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
@@ -9,7 +9,7 @@ interface Product {
   name: string;
 }
 
-export default function DevisPage() {
+function DevisForm() {
   const searchParams = useSearchParams();
   const preselectedProduct = searchParams.get('product') || '';
 
@@ -156,6 +156,14 @@ export default function DevisPage() {
           {status && <p className="text-sm text-center text-graphite/70 mt-2">{status}</p>}
         </form>
       </div>
-    </div>
+        </div>
+  );
+}
+
+export default function DevisPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-ivory" />}>
+      <DevisForm />
+    </Suspense>
   );
 }
