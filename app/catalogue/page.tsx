@@ -16,15 +16,15 @@ interface Product {
 }
 
 const content = {
-  fr: { title: 'Notre Catalogue', all: 'Tout', marbre: 'Marbre', granite: 'Granite', loading: 'Chargement...', empty: 'Aucun produit disponible pour le moment dans cette catégorie.', quote: 'Demander un devis' },
-  ar: { title: 'الكتالوج', all: 'الكل', marbre: 'رخام', granite: 'جرانيت', loading: 'جار التحميل...', empty: 'لا يوجد منتج متاح حاليًا في هذه الفئة.', quote: 'طلب عرض سعر' },
-  en: { title: 'Our Catalogue', all: 'All', marbre: 'Marble', granite: 'Granite', loading: 'Loading...', empty: 'No products available in this category yet.', quote: 'Request a quote' },
+  fr: { title: 'Notre Catalogue', all: 'Tout', marbre: 'Marbre', granite: 'Granite', artificiel: 'Pierre Artificielle', loading: 'Chargement...', empty: 'Aucun produit disponible pour le moment dans cette catégorie.', quote: 'Demander un devis' },
+  ar: { title: 'الكتالوج', all: 'الكل', marbre: 'رخام', granite: 'جرانيت', artificiel: 'حجر صناعي', loading: 'جار التحميل...', empty: 'لا يوجد منتج متاح حاليًا في هذه الفئة.', quote: 'طلب عرض سعر' },
+  en: { title: 'Our Catalogue', all: 'All', marbre: 'Marble', granite: 'Granite', artificiel: 'Engineered Stone', loading: 'Loading...', empty: 'No products available in this category yet.', quote: 'Request a quote' },
 };
 
 export default function CataloguePage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<'all' | 'marbre' | 'granite'>('all');
+    const [filter, setFilter] = useState<'all' | 'marbre' | 'granite' | 'artificiel'>('all');
   const supabase = createClient();
   const { lang } = useLanguage();
   const t = content[lang];
@@ -60,6 +60,7 @@ export default function CataloguePage() {
           <button onClick={() => setFilter('all')} className={`px-4 py-2 text-sm font-medium border ${filter === 'all' ? 'bg-graphite text-white border-graphite' : 'border-graphite/20 text-graphite/60'}`}>{t.all}</button>
           <button onClick={() => setFilter('marbre')} className={`px-4 py-2 text-sm font-medium border ${filter === 'marbre' ? 'bg-graphite text-white border-graphite' : 'border-graphite/20 text-graphite/60'}`}>{t.marbre}</button>
           <button onClick={() => setFilter('granite')} className={`px-4 py-2 text-sm font-medium border ${filter === 'granite' ? 'bg-graphite text-white border-graphite' : 'border-graphite/20 text-graphite/60'}`}>{t.granite}</button>
+          <button onClick={() => setFilter('artificiel')} className={`px-4 py-2 text-sm font-medium border ${filter === 'artificiel' ? 'bg-graphite text-white border-graphite' : 'border-graphite/20 text-graphite/60'}`}>{t.artificiel}</button>
         </div>
 
         {loading ? (

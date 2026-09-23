@@ -5,9 +5,9 @@ import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const content = {
-  fr: { catalogue: 'Catalogue', contact: 'Contact', devis: 'Demander un devis' },
-  ar: { catalogue: 'الكتالوج', contact: 'اتصل بنا', devis: 'طلب عرض سعر' },
-  en: { catalogue: 'Catalogue', contact: 'Contact', devis: 'Request a Quote' },
+  fr: { about: 'À propos', catalogue: 'Catalogue', contact: 'Contact', devis: 'Demander un devis' },
+  ar: { about: 'من نحن', catalogue: 'الكتالوج', contact: 'اتصل بنا', devis: 'طلب عرض سعر' },
+  en: { about: 'About', catalogue: 'Catalogue', contact: 'Contact', devis: 'Request a Quote' },
 };
 
 export default function Header() {
@@ -18,9 +18,10 @@ export default function Header() {
   return (
     <div className="sticky top-0 z-50 bg-ivory/95 backdrop-blur border-b border-graphite/10">
       <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" className="font-heading text-2xl font-semibold text-graphite">El Yaziji</a>
+        <a href="/" className="font-logo text-2xl md:text-3xl font-bold text-graphite tracking-widest uppercase">El Yaziji</a>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-graphite/70">
+          <a href="/about" className="hover:text-graphite transition">{t.about}</a>
           <a href="/catalogue" className="hover:text-graphite transition">{t.catalogue}</a>
           <a href="/contact" className="hover:text-graphite transition">{t.contact}</a>
           <div className="flex gap-1 border border-graphite/15">
@@ -38,6 +39,7 @@ export default function Header() {
 
       {open && (
         <nav className="md:hidden border-t border-graphite/10 px-6 py-4 flex flex-col gap-4 text-sm font-medium text-graphite/70 bg-ivory">
+          <a href="/about" onClick={() => setOpen(false)}>{t.about}</a>
           <a href="/catalogue" onClick={() => setOpen(false)}>{t.catalogue}</a>
           <a href="/contact" onClick={() => setOpen(false)}>{t.contact}</a>
           <div className="flex gap-1 border border-graphite/15 w-fit">

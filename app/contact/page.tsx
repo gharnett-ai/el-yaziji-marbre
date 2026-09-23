@@ -27,15 +27,16 @@ export default function ContactPage() {
             <Phone className="w-6 h-6 text-gold shrink-0 mt-1" />
             <div>
               <p className="font-medium text-graphite">{t.phone}</p>
-              <a href="tel:0668547424" className="text-graphite/60">06 68 54 74 24</a>
+                            <a href="tel:0668547424" dir="ltr" className="text-graphite/60 inline-block">06 68 54 74 24</a>
+            </div>
+                    <div className="flex items-start gap-4">
+            <Phone className="w-6 h-6 text-gold shrink-0 mt-1" />
+            <div>
+              <p className="font-medium text-graphite">{t.phone}</p>
+              <a href="tel:0668547424" dir="ltr" className="text-graphite/60 block">06 68 54 74 24</a>
+              <a href="tel:0634514007" dir="ltr" className="text-graphite/60 block">06 34 51 40 07</a>
             </div>
           </div>
-          <div className="flex items-start gap-4">
-            <MapPin className="w-6 h-6 text-gold shrink-0 mt-1" />
-            <div>
-              <p className="font-medium text-graphite">{t.address}</p>
-              <p className="text-graphite/60">{t.addressVal}</p>
-            </div>
           </div>
           <div className="flex items-start gap-4">
             <Clock className="w-6 h-6 text-gold shrink-0 mt-1" />

@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --font-heading: "Cormorant Garamond", serif;
+  --font-heading: "Libre Caslon Display", serif;
+  --font-logo: "Libre Caslon Display", serif;
   --font-body: "Inter", sans-serif;
 
   --color-graphite: #2B2B2B;
